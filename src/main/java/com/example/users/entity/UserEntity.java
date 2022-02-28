@@ -20,6 +20,14 @@ public class UserEntity {
 
     private String document;
 
+    public UserEntity(){}
+
+    public UserEntity(String name, LocalDate dateBirth, String document) {
+        this.name = name;
+        this.dateBirth = dateBirth;
+        this.document = document;
+    }
+
     public Long getId() {
         return id;
     }
