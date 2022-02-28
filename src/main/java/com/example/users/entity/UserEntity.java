@@ -1,9 +1,8 @@
 package com.example.users.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.example.users.enums.TypeNotification;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -20,12 +19,22 @@ public class UserEntity {
 
     private String document;
 
+    private String phone;
+
+    private String email;
+
+    @Enumerated(EnumType.STRING)
+    private TypeNotification type;
+
     public UserEntity(){}
 
-    public UserEntity(String name, LocalDate dateBirth, String document) {
+    public UserEntity(String name, LocalDate dateBirth, String document, String phone, String email, TypeNotification type) {
         this.name = name;
         this.dateBirth = dateBirth;
         this.document = document;
+        this.email = email;
+        this.phone = phone;
+        this.type = type;
     }
 
     public Long getId() {
@@ -58,5 +67,29 @@ public class UserEntity {
 
     public void setDocument(String document) {
         this.document = document;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public TypeNotification getType() {
+        return type;
+    }
+
+    public void setType(TypeNotification type) {
+        this.type = type;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.users.service;
 
 import com.example.users.controller.request.UserRequest;
+import com.example.users.enums.TypeNotification;
 import com.example.users.repository.UserRepository;
 import com.example.users.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ public class UserServiceTest {
     public void create_user_with_success(){
         when(repository.save(any())).thenReturn(any());
 
-        service.create(new UserRequest("test", LocalDate.now().minusYears(20), "0123456789"));
+        service.create(new UserRequest("test", LocalDate.now().minusYears(20), "0123456789", "553198234567", "teste@teste.com", TypeNotification.WHATSAPP));
 
         verify(repository).save(any());
     }
