@@ -19,6 +19,9 @@ public class UserServiceTest {
     @Mock
     private UserRepository repository;
 
+    @Mock
+    private NotificationService notificationService;
+
     @InjectMocks
     private UserServiceImpl service;
 
@@ -29,5 +32,6 @@ public class UserServiceTest {
         service.create(new UserRequest("test", LocalDate.now().minusYears(20), "0123456789", "553198234567", "teste@teste.com", TypeNotification.WHATSAPP));
 
         verify(repository).save(any());
+        verify(notificationService).send(any());
     }
 }
