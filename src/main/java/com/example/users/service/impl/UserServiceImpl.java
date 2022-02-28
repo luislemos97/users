@@ -34,12 +34,10 @@ public class UserServiceImpl implements UserService {
     }
 
     private SendModel buildSendModel(UserRequest request){
-        switch (request.getType()){
-            case WHATSAPP:
-            case SMS: return new SendModel(request.getPhone(), request.getType());
-            default:
-                return new SendModel(request.getEmail(), request.getType());
-        }
+       return switch (request.getType()){
+            case SMS, WHATSAPP ->  new SendModel(request.getPhone(), request.getType());
+            default -> new SendModel(request.getEmail(), request.getType());
+        };
     }
 
     @Override
