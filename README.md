@@ -1,5 +1,5 @@
 
-# Projeto de API de Usuários
+# Projeto de Gerenciamento de Usuários
 
 ## Visão Geral
 
